@@ -1,3 +1,9 @@
+const path = require('path')
+
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
