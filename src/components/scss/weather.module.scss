@@ -3,6 +3,7 @@
 .headers {
     color: $font-white;
     text-align: center;
+    font-size: 2rem;
 }
 
 .container {
@@ -12,16 +13,52 @@
     width: 100%;
     flex-wrap: wrap;
     color: $font-white;
+    align-items: center;
+    .date {
+        font-size: 1rem;
+    }
     .section {
+        text-align: center;
         //border: 1px solid red;
         padding: 20px;
         margin: 1%;
-        width: 31.3333%;
+        width: 18%;
+        border-radius: 0.25rem;
         background-color: $header-color;
+        box-shadow: 3px 3px $footer-color;
     }
-    .para {
+    .fahrenheit {
         padding: 10px;
+        font-size: 2.5rem;
+        color: $pink-color;
+        text-shadow: 3px 3px $footer-color;
+        //white-space: nowrap;
+    }
+    .degrees {
+        padding: 5px;
+        font-size: 2rem;
+        //white-space: nowrap;
+
     }
 
+}
+
+@media screen and (max-width:1024px)
+{
+    .container {
+        display: flex;
+        flex-direction: column;
+        .section {
+            width: 65%;
+            margin: 1%;
+        }
+
+        .fahrenheit {
+            font-size: 2rem;
+        }
+        .degrees {
+            font-size: 1.5rem;
+        }
+    }
 }
 

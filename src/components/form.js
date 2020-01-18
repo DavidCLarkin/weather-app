@@ -3,7 +3,7 @@ import styles from './scss/form.module.scss'
 
 const Form = props => {
 	return (
-		<div>
+		<div className={styles.outer}>
 			<form onSubmit={props.getWeather}>
 				<div className={styles.container}>
 					<input className={styles.inputField}

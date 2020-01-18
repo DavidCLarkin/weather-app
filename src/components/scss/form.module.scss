@@ -1,5 +1,6 @@
 @import './base.module.scss';
 
+
 .container {
     margin-top: 2rem;
     width: 100%;
@@ -7,11 +8,15 @@
     justify-content: space-evenly;
 }
 .inputField {
-    background-color: $pink-color;
+    background-color: transparent;
     border: 0;
+    border-bottom: 3px solid $pink-color;
     color: $font-white;
     padding: 0.5rem;
     text-align: center;
+    border-radius: 0.5rem;
+    width: 20%;
+    outline-color: transparent;
 }
 
 .buttonContainer {
@@ -19,15 +24,39 @@
     justify-content: center;
 
     button {
-        margin-top: 1rem;
+        margin-top: 2rem;
         padding: 0.5rem;
         width: 15rem;
-        border: 3px solid $pink-color;
-        background-color: $background;
+        border: 0;
+        background-color: $pink-color;
         box-shadow: 2px 2px $header-color;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         color: $font-white;
         justify-content: center;
+        outline-color: transparent;
+
+    }
+    button:focus {
+        //text-decoration: underline;
+        outline-color: $font-white;
+        //background-color: $background;
+
+    }
+    button:hover {
+        background-color: $pink-color - $pink-color*0.15;
+        border: 0;
+        transition: all 0.1s linear;
+    }
+}
+
+@media screen and (max-width: 1024px)
+{
+    .container {
+        flex-direction: column;
+        .inputField {
+            width: 50%;
+            margin: auto;
+        }
     }
 }
 
