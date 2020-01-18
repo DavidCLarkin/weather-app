@@ -1,0 +1,27 @@
+@import './base.module.scss';
+
+.headers {
+    color: $font-white;
+    text-align: center;
+}
+
+.container {
+    //border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    color: $font-white;
+    .section {
+        //border: 1px solid red;
+        padding: 20px;
+        margin: 1%;
+        width: 31.3333%;
+        background-color: $header-color;
+    }
+    .para {
+        padding: 10px;
+    }
+
+}
+

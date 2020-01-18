@@ -1,0 +1,15 @@
+@import './base.module.scss';
+
+.header {
+    background: $header-color;
+    margin: 0 auto;
+
+    .content {
+        padding: 1.45rem;
+    }
+
+    h1 {
+        color: $pink-color;
+        margin : 0;
+    }
+}

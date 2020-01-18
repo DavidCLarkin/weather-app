@@ -1,21 +1,26 @@
 import React from 'react'
+import styles from './scss/form.module.scss'
 
 const Form = props => {
-  return (
-    <div>
+	return (
+		<div>
 			<form onSubmit={props.getWeather}>
-			<input 
-				name="city"
-        placeholder="City"
-			/>
-			<input
-				name="country"
-        placeholder="Country"
-			/>
-			<button>Get Weather</button>
+				<div className={styles.container}>
+					<input className={styles.inputField}
+						name="city"
+						placeholder="City"
+					/>
+					<input className={styles.inputField}
+						name="country"
+						placeholder="Country"
+					/>
+				</div>
+				<div className={styles.buttonContainer}>
+					<button>Get Weather</button>
+				</div>
 			</form>
-    </div>
-  )
+		</div>
+	)
 }
 
 export default Form
