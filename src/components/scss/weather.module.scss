@@ -14,6 +14,10 @@
     flex-wrap: wrap;
     color: $font-white;
     align-items: center;
+    img {
+        padding: 0;
+        margin: 0;
+    }
     .date {
         font-size: 1rem;
     }
@@ -26,7 +30,15 @@
         border-radius: 0.25rem;
         background-color: $header-color;
         box-shadow: 3px 3px $footer-color;
+        transition: transform .2s ease-in-out;
+
+
     }
+
+    .section:hover {
+        transform: scale(1.05);
+    }
+
     .fahrenheit {
         padding: 10px;
         font-size: 2.5rem;
