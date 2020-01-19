@@ -1,19 +1,17 @@
-/*const path = require('path')
+const path = require('path')
 
 require('dotenv').config({
-  path: `.env`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
-*/
-const dotenv = require('dotenv')
 
-dotenv.config()
+//const dotenv = require('dotenv')
 
 // Remove this in build to try to fix
-if(process.env.NODE_ENV !== 'production') 
+/*if(process.env.NODE_ENV !== 'production') 
 {
   dotenv.config()
 }
-
+*/
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
