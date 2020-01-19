@@ -26,11 +26,11 @@ class IndexPage extends Component {
 		const country = e.target.country.value
 
 		var response = undefined;
-		console.log("Key: "+process.env.REACT_APP_WEATHER_API_KEY);
+		console.log("Key: "+process.env.GATSBY_APP_WEATHER_API_KEY);
 
 		if (city && country) {
 			console.log("CITY")
-			const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+			const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
 			response = await api_call.json()
 			console.log(response)
 			this.setState({
@@ -42,7 +42,7 @@ class IndexPage extends Component {
 		}
 		else if (city && !country) {
 			console.log("COUNTRY")
-			const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
+			const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
 			response = await api_call.json()
 
 			this.setState({
