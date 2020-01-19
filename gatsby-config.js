@@ -1,8 +1,16 @@
-const path = require('path')
+/*const path = require('path')
 
 require('dotenv').config({
   path: `.env`,
 })
+*/
+const dotenv = require('dotenv')
+
+// Remove this in build to try to fix
+if(process.env.NODE_ENV !== 'production') 
+{
+  dotenv.config()
+}
 
 module.exports = {
   siteMetadata: {
