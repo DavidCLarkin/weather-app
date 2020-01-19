@@ -6,6 +6,8 @@ require('dotenv').config({
 */
 const dotenv = require('dotenv')
 
+dotenv.config()
+
 // Remove this in build to try to fix
 if(process.env.NODE_ENV !== 'production') 
 {
