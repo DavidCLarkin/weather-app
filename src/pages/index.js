@@ -26,6 +26,7 @@ class IndexPage extends Component {
 		const country = e.target.country.value
 
 		var response = undefined;
+		console.log("Key: "+process.env.REACT_APP_WEATHER_API_KEY);
 
 		if (city && country) {
 			console.log("CITY")
