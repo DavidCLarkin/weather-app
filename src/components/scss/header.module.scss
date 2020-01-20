@@ -3,13 +3,13 @@
 .header {
     background: $header-color;
     margin: 0 auto;
-
-    .content {
-        padding: 1.45rem;
+    //height: 100px;
+    img {
+        margin-bottom: 0;
     }
 
-    h1 {
-        color: $pink-color;
-        margin : 0;
+    .content {
+        padding: 1rem;
+        justify-content: start;
     }
 }

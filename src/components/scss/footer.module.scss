@@ -1,0 +1,23 @@
+@import 'base.module.scss';
+
+
+footer {
+    margin-top: auto;
+}
+.footer-section {
+  background-color: $footer-color;
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: $font-white;
+  //position: absolute;
+  height: 100px;
+  //bottom: 0;
+
+  .footnote {
+      margin-top: 1.5rem;
+    //padding-top: 2rem;
+  }
+}

@@ -9,6 +9,7 @@
 .container {
     //border: 1px solid black;
     display: flex;
+    min-height: calc(60vh - 50px); // for footer space at bottom
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;

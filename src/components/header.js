@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styles from './scss/header.module.scss'
+import logo from '../images/weatherIcons/wi-windy.svg'
 
 const Header = () => (
   <header className={styles.header}>
@@ -12,7 +13,7 @@ const Header = () => (
         //padding: `1.45rem 1.0875rem`,
       //}}
     >
-      <h1>Logo</h1>
+      <img src={logo} alt="logo" height='50'  width='50'></img>
     </div>
   </header>
 )

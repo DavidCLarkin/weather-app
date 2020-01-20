@@ -1,8 +1,5 @@
 import React, { Component } from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import Weather from "../components/weather"
 import Form from "../components/form"
@@ -70,6 +67,7 @@ class IndexPage extends Component {
 					//temp={this.state.temp}
 				/>
 			</Layout>
+
 		)
 	}
 }

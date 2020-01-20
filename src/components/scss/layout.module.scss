@@ -5,8 +5,13 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   background-color: $background;
+  height: 100%;
+  margin: 0;
 }
 body {
+  //height: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,6 +29,10 @@ nav,
 section,
 summary {
   display: block;
+}
+
+footer {
+  margin-top: auto;
 }
 audio,
 canvas,
