@@ -63,8 +63,8 @@ const Weather = props => {
 							{/*<p>{convertToTime(e.dt)}</p>*/}
 							<img src={helpers.convertIdToSVG(e.weather[0].icon)}
 								alt={e.weather[0].main}
-								height='150'
-								width='150' />
+								height='100'
+								width='100' />
 							<p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
 							<p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
 						</div>
