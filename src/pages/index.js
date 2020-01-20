@@ -16,42 +16,60 @@ class IndexPage extends Component {
 		//this.getWeather();
 	}
 
+
 	getWeather = async (e) => {
 		e.preventDefault();
 
 		const city = e.target.city.value
 		const country = e.target.country.value
 
-		var response = undefined;
+		let response;
 
+		try {
 		if (city && country) {
 			console.log("CITY")
 			const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
 			response = await api_call.json()
-			console.log(response)
-			this.setState({
-				city: response.city.name,
-				country: response.city.country,
-				data: response.list
-				//temp: response.main.temp
-			})
+
+			if(response != null)
+			{
+				this.setState({
+					city: response.city.name,
+					country: response.city.country,
+					data: response.list
+				})
+			}
 		}
 		else if (city && !country) {
 			console.log("COUNTRY")
 			const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
 			response = await api_call.json()
 
-			this.setState({
-				city: response.city.name,
-				country: response.city.country,
-				data: response.list
+			if(response != null)
+			{
+				this.setState({
+					city: response.city.name,
+					country: response.city.country,
+					data: response.list
 
-				//temp: response.main.temp
-			})
+					//temp: response.main.temp
+				})
+			}
 		}
+		else {
+			if(!city && country)
+				alert("Please input a city as well")
+			else {
+				alert("Please input a city")
+			}
+		}
+	} catch(ex) {
+		alert("You didn't enter a valid city/country")
+		return ex
+	}
 
 		//response;
-		console.log(response);
+		//console.log(response);
 	};
 
 

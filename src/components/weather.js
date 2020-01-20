@@ -40,8 +40,7 @@ const Weather = props => {
 		else if (time > 12) return time - 12 + ' pm'
 	}
 
-	function filterByTime(time)
-	{
+	function filterByTime(time) {
 		var date = convertUNIX(time)
 		return date.getUTCHours()
 
@@ -49,33 +48,30 @@ const Weather = props => {
 
 	return (
 		<div>
-			<h1 className={styles.headers}>{props.city}, {props.country}</h1>
+			{ data &&
+				<h1 className={styles.headers}>{props.city}, {props.country} </h1>
+			}
 			<div className={styles.container}>
 				{/* Filter so that only 3pm on each day is shown (estimate the weather)*/}
-				{data && 
-					data.filter(e => filterByTime(e.dt) == 15)
+				{data && data
+					.filter(e => filterByTime(e.dt) == 15)
 					.map(e => {
-					//console.log(e)
-					return (
-						<div className={styles.section}>
-							{/*console.log("DATE: " + convertUNIX(e.dt))*/}
-							<p className={styles.date}>{convertToDate(e.dt)}</p>
-							{/*<p>{convertToTime(e.dt)}</p>*/}
-							<img src={helpers.convertIdToSVG(e.weather[0].icon)}
-								alt={e.weather[0].main}
-								height='100'
-								width='100' />
-							<p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
-							<p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
-						</div>
-					)
-				})}
-				{/*
-			<p>{kelvinToCelsius(props.temp) + " Celsius"}</p>
-			<p>{kelvinToFahrenheit(props.temp) + " Fahrenheit"}</p>
-			<p>{convertUNIX(props.sunrise).toTimeString()}</p>
-			<p>{convertUNIX(props.sunset).toTimeString()}</p>
-			*/}
+						//console.log(e)
+						return (
+							<div className={styles.section}>
+								{/*console.log("DATE: " + convertUNIX(e.dt))*/}
+								<p className={styles.date}>{convertToDate(e.dt)}</p>
+								{/*<p>{convertToTime(e.dt)}</p>*/}
+								<img src={helpers.convertIdToSVG(e.weather[0].icon)}
+									alt={e.weather[0].main}
+									height='100'
+									width='100' />
+								<p>{e.weather[0].description}</p>
+								<p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
+								<p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
+							</div>
+						)
+					})}
 			</div>
 		</div>
 	)
