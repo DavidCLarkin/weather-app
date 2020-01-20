@@ -82,7 +82,7 @@ class IndexPage extends Component {
 		return (
 			<Layout>
 				<SEO title="Home" />
-				<Form getWeather={this.getWeather} />
+				<Form getWeather={this.getWeather} error={this.state.error}/>
 				<Weather
 					city={this.state.city}
 					country={this.state.country}
