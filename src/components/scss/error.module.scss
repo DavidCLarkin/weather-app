@@ -1,0 +1,14 @@
+@import './base.module.scss';
+
+.container {
+    display: flex;
+    min-height: calc(60vh - 75px); // for footer space at bottom
+    width: 100%;
+    text-align: center;
+
+    p {
+        padding-top: 2rem;
+        width: 100%;    
+        color: $error;
+    }
+}

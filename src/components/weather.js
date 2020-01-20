@@ -2,9 +2,22 @@ import React from 'react'
 import styles from './scss/weather.module.scss'
 import helpers from '../helpers/helpers.js'
 import Reveal from 'react-reveal/Reveal'
+import WeatherDisplay from './weatherDisplay'
+import ErrorComponent from './errorComponent'
 
 const Weather = props => {
 	const data = props.data
+	const error = props.error
+
+	let componentToDisplay
+
+	if(error)
+	{
+		componentToDisplay = <ErrorComponent />
+	}
+	else {
+		componentToDisplay = <WeatherDisplay data={data} city={props.city} country={props.country}/>
+	}
 
 	function convertUNIX(unixTime) {
 		return new Date(unixTime * 1000);
@@ -48,32 +61,9 @@ const Weather = props => {
 
 	return (
 		<div>
-			{ data &&
-				<h1 className={styles.headers}>{props.city}, {props.country} </h1>
-			}
-			<div className={styles.container}>
-				{/* Filter so that only 3pm on each day is shown (estimate the weather)*/}
-				{data && data
-					.filter(e => filterByTime(e.dt) == 15)
-					.map(e => {
-						//console.log(e)
-						return (
-							<div className={styles.section}>
-								{/*console.log("DATE: " + convertUNIX(e.dt))*/}
-								<p className={styles.date}>{convertToDate(e.dt)}</p>
-								{/*<p>{convertToTime(e.dt)}</p>*/}
-								<img src={helpers.convertIdToSVG(e.weather[0].icon)}
-									alt={e.weather[0].main}
-									height='100'
-									width='100' />
-								<p>{e.weather[0].description}</p>
-								<p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
-								<p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
-							</div>
-						)
-					})}
-			</div>
+			{componentToDisplay}
 		</div>
+				
 	)
 
 }
