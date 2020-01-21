@@ -3,13 +3,13 @@
 .header {
     background: $header-color;
     margin: 0 auto;
-    //height: 100px;
+    height: 50px;
     img {
         margin-bottom: 0;
     }
 
     .content {
-        padding: 1rem;
+        //padding: 1rem;
         justify-content: start;
     }
 }

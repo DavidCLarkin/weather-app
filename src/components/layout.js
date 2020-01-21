@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
+        <main className={styles.main}>{children}</main>
         {/*
         <footer>
           © {new Date().getFullYear()}, Built by
@@ -43,8 +43,9 @@ const Layout = ({ children }) => {
           <a href="https://www.davidlarkin.dev">David Larkin</a>
         </footer>
         */}
+        <Footer/>
       </div>
-      <Footer />
+
 
     </>
   )

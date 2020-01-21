@@ -7,10 +7,75 @@
     margin-bottom: 0;
 }
 
+.wrapper {
+    display: flex;
+    justify-content: center;
+
+    .todaySection {
+        width: 100%;
+        margin: 0.5rem;
+        display: grid;
+        padding: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+        "day day day"
+        "icon desc temp"
+        ;
+        margin-top: 1rem;
+        border-radius: 0.25rem;
+        background-color: $header-color;
+        box-shadow: 4px 4px $light-color;
+        color: $font-white;
+
+        .iconArea {
+            grid-area: icon;
+            width: 33%;
+        }
+
+        .dayArea {
+            grid-area: day;
+        }
+
+        .tempArea {
+            grid-area: temp;
+            flex-direction: column;
+        }
+
+        .descArea {
+            grid-area: desc;
+        }
+
+        img, p {
+            margin-bottom: 0;
+        }
+    }
+    .todaySection > div {
+        padding: 10px 10px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }    
+}
+
+.fahrenheit {
+    padding: 10px;
+    font-size: 2rem;
+    color: $light-color;
+    text-shadow: 3px 3px $dark-font;
+    //white-space: nowrap;
+}
+.degrees {
+    padding: 5px;
+    font-size: 1.5rem;
+    //white-space: nowrap;
+}
+
 .container {
     //border: 1px solid black;
     display: flex;
-    min-height: calc(60vh - 75px); // for footer space at bottom
+    min-height: 100%; // for footer space at bottom
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
@@ -40,37 +105,33 @@
         transform: scale(1.05);
     }
 
-    .fahrenheit {
-        padding: 10px;
-        font-size: 2rem;
-        color: $light-color;
-        text-shadow: 3px 3px $dark-font;
-        //white-space: nowrap;
-    }
-    .degrees {
-        padding: 5px;
-        font-size: 1.5rem;
-        //white-space: nowrap;
-    }
-
 }
 
 @media screen and (max-width:1024px)
 {
+
     .container {
         display: flex;
-        flex-direction: column;
+        //flex-direction: column;
         .section {
-            width: 65%;
+            width: 31%;
             margin: 1%;
         }
+    }
 
-        .fahrenheit {
-            font-size: 1.5rem;
-        }
-        .degrees {
-            font-size: 1.2rem;
-        }
+    .fahrenheit {
+        font-size: 1.5rem;
+    }
+    .degrees {
+        font-size: 1.2rem;
     }
 }
 
+@media screen and (max-width: 600px)
+{
+    .container {
+        .section {
+            width: 48%;
+        }
+    }
+}

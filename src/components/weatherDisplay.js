@@ -3,6 +3,8 @@ import styles from './scss/weather.module.scss'
 import helpers from '../helpers/helpers.js'
 
 const WeatherDisplay = props => {
+    const date = new Date();
+    let timestamp = date.getTime()/1000
     function convertUNIX(unixTime) {
 		return new Date(unixTime * 1000);
 	}
@@ -48,6 +50,28 @@ const WeatherDisplay = props => {
             {props.data &&
                 <h1 className={styles.headers}>{props.city}, {props.country} </h1>
             }
+            {props.todaysIcon &&
+                <div className={styles.wrapper}>
+                    <div className={styles.todaySection}> 
+                        <div className={styles.iconArea}>
+                        <img src={helpers.convertIdToSVG(props.todaysIcon)} 
+                            alt="today's weather icon"
+                            height='100'
+                            wdith='100'/>
+                        </div>
+                        <div className={styles.dayArea}>
+                            <p>{convertToDate(timestamp)}</p>
+                        </div>
+                        <div className={styles.descArea}>
+                            <p>{props.todaysDesc}</p>
+                        </div>
+                        <div className={styles.tempArea}>
+                            <p className={styles.fahrenheit}>{kelvinToFahrenheit(props.todaysTemp)}º F</p>
+                            <p className={styles.degrees}>{kelvinToCelsius(props.todaysTemp)}º C</p>
+                        </div>
+                    </div>
+                </div>
+            }   
             <div className={styles.container}>
                 {/* Filter so that only 3pm on each day is shown (estimate the weather)*/}
                 {props.data && props.data

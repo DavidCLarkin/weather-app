@@ -1,19 +1,18 @@
 @import 'base.module.scss';
 
-
-footer {
-    margin-top: auto;
-}
 .footer-section {
-  background-color: $footer-color;
+  background-color: $background;
   width: 100%;
   display:flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: $font-white;
+  height: 75px;
+  overflow: hidden;
+  color: $footer-color;
+  border-top: 2px solid $footer-color;
   //position: absolute;
-  height: 120px;
   //bottom: 0;
 
   .footnote {

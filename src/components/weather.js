@@ -16,9 +16,16 @@ const Weather = props => {
 		componentToDisplay = <ErrorComponent />
 	}
 	else {
-		componentToDisplay = <WeatherDisplay data={data} city={props.city} country={props.country}/>
+		componentToDisplay = <WeatherDisplay 
+								data={data} 
+								city={props.city} 
+								country={props.country} 
+								todaysTemp={props.todaysTemp} 
+								todaysIcon={props.todaysIcon}
+								todaysDesc={props.todaysDesc}
+								/>
 	}
-	
+
 	return (
 		<div>
 			{componentToDisplay}
