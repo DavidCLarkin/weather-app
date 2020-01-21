@@ -53,11 +53,11 @@ const WeatherDisplay = props => {
             {props.todaysIcon &&
                 <div className={styles.wrapper}>
                     <div className={styles.todaySection}> 
-                        <div className={styles.iconArea}>
-                        <img src={helpers.convertIdToSVG(props.todaysIcon)} 
-                            alt="today's weather icon"
-                            height='100'
-                            wdith='100'/>
+                        <div className={styles.iconArea}>   
+                            <img src={helpers.convertIdToSVG(props.todaysIcon)} 
+                                alt="Today's weather icon"
+                                height='100'
+                                wdith='100'/>
                         </div>
                         <div className={styles.dayArea}>
                             <p>{convertToDate(timestamp)}</p>

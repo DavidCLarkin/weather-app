@@ -16,8 +16,10 @@
         margin: 0.5rem;
         display: grid;
         padding: 10px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
+        //grid-template-columns: 1fr;
+        //grid-template-rows: auto;
+        grid-column-start: 1;
+        grid-column-end: 4;
         grid-template-areas:
         "day day day"
         "icon desc temp"
@@ -30,7 +32,6 @@
 
         .iconArea {
             grid-area: icon;
-            width: 33%;
         }
 
         .dayArea {
@@ -49,13 +50,18 @@
         img, p {
             margin-bottom: 0;
         }
-    }
-    .todaySection > div {
-        padding: 10px 10px;
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
+
+        > div {
+            padding: 10px 10px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        > :nth-child(0) {
+            max-width: 10px;
+        }
     }    
 }
 
