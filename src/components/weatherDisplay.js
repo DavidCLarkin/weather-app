@@ -1,10 +1,12 @@
 import React from 'react'
 import styles from './scss/weather.module.scss'
 import helpers from '../helpers/helpers.js'
+import _ from 'lodash';
 
 const WeatherDisplay = props => {
     const date = new Date();
-    let timestamp = date.getTime()/1000
+    let timestamp = date.getTime()/1000 // today's date
+
     function convertUNIX(unixTime) {
 		return new Date(unixTime * 1000);
 	}
@@ -63,7 +65,7 @@ const WeatherDisplay = props => {
                             <p>{convertToDate(timestamp)}</p>
                         </div>
                         <div className={styles.descArea}>
-                            <p>{props.todaysDesc}</p>
+                            <p>{_.capitalize(props.todaysDesc)}</p>
                         </div>
                         <div className={styles.tempArea}>
                             <p className={styles.fahrenheit}>{kelvinToFahrenheit(props.todaysTemp)}º F</p>
@@ -87,7 +89,7 @@ const WeatherDisplay = props => {
                                     alt={e.weather[0].main}
                                     height='100'
                                     width='100' />
-                                <p>{e.weather[0].description}</p>
+                                <p>{_.capitalize(e.weather[0].description)}</p>
                                 <p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
                                 <p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
                             </div>

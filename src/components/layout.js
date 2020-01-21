@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 import styles from "./scss/layout.module.scss"
+import bg from '../images/weatherheader.svg'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -27,6 +28,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      {/*<img src={bg} 
+          style={{height:'100%', width:'100%',zIndex: -1, position:'absolute'}} />
+      */}
       <div
         style={{
           margin: `0 auto`,
@@ -35,7 +39,8 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main className={styles.main}>{children}</main>
+        <main className={styles.main}>{children}
+        </main>
         {/*
         <footer>
           © {new Date().getFullYear()}, Built by
@@ -44,6 +49,7 @@ const Layout = ({ children }) => {
         </footer>
         */}
         <Footer/>
+
       </div>
 
 

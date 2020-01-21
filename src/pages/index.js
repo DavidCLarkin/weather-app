@@ -50,6 +50,7 @@ class IndexPage extends Component {
 				api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
 
 				response = await api_call.json()
+				//console.log(response)
 				
 				this.setState({
 					todaysTemp: response.main.temp,
@@ -97,12 +98,9 @@ class IndexPage extends Component {
 			this.setState({
 				error: true
 			})
-			//alert("You didn't enter a valid city/country")
 			console.clear()
-			//return Promise.reject()
 		}
 
-		//response;
 		//console.log(response);
 	}
 
@@ -120,7 +118,6 @@ class IndexPage extends Component {
 					todaysIcon={this.state.todaysIcon}
 					todaysDesc={this.state.todaysDesc}
 					error={this.state.error}
-					//temp={this.state.temp}
 				/>
 			</Layout>
 

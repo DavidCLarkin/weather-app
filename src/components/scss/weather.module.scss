@@ -27,8 +27,9 @@
         margin-top: 1rem;
         border-radius: 0.25rem;
         background-color: $header-color;
-        box-shadow: 4px 4px $light-color;
+        //box-shadow: 4px 4px $light-color;
         color: $font-white;
+        transition: transform .2s ease-in-out;
 
         .iconArea {
             grid-area: icon;
@@ -45,6 +46,7 @@
 
         .descArea {
             grid-area: desc;
+            font-size: 2rem;
         }
 
         img, p {
@@ -62,7 +64,11 @@
         > :nth-child(0) {
             max-width: 10px;
         }
-    }    
+    }
+    
+    .todaySection:hover {
+        transform: scale(1.01);
+    }
 }
 
 .fahrenheit {
@@ -81,7 +87,7 @@
 .container {
     //border: 1px solid black;
     display: flex;
-    min-height: 100%; // for footer space at bottom
+    min-height: 100%; 
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
@@ -102,13 +108,14 @@
         width: 18%;
         border-radius: 0.25rem;
         background-color: $header-color;
-        box-shadow: 4px 4px $light-color;
+        //box-shadow: 4px 4px $light-color;
         transition: transform .2s ease-in-out;
-        white-space: nowrap;
+        //white-space: nowrap;
     }
 
     .section:hover {
         transform: scale(1.05);
+        background-color: $hovered-dark;
     }
 
 }
