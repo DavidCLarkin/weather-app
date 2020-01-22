@@ -34,7 +34,6 @@ const WeatherDisplay = props => {
 	}
 
 	function convertMilitaryTime(time) {
-		//time += 1
 		if (time == 0) return '12 am'
 		else if (time < 12) return time + ' am'
 		else if (time == 12) return '12 pm'
@@ -79,12 +78,9 @@ const WeatherDisplay = props => {
                 {props.data && props.data
                     .filter(e => filterByTime(e.dt) == 15)
                     .map(e => {
-                        //console.log(e)
                         return (
                             <div className={styles.section}>
-                                {/*console.log("DATE: " + convertUNIX(e.dt))*/}
                                 <p className={styles.date}>{convertToDate(e.dt)}</p>
-                                {/*<p>{convertToTime(e.dt)}</p>*/}
                                 <img src={helpers.convertIdToSVG(e.weather[0].icon)}
                                     alt={e.weather[0].main}
                                     height='100'

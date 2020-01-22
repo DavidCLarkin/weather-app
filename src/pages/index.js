@@ -17,7 +17,6 @@ class IndexPage extends Component {
 			todaysDesc: undefined,
 			error: false
 		};
-		//this.getWeather();
 	}
 
 
@@ -31,7 +30,6 @@ class IndexPage extends Component {
 			let response;
 
 			if (city && country) {
-				console.log("CITY")
 				let api_call
 
 				// Getting the weeks weather data
@@ -50,7 +48,6 @@ class IndexPage extends Component {
 				api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
 
 				response = await api_call.json()
-				//console.log(response)
 				
 				this.setState({
 					todaysTemp: response.main.temp,
@@ -59,7 +56,6 @@ class IndexPage extends Component {
 				})
 			}
 			else if (city && !country) {
-				console.log("COUNTRY")
 				let api_call
 
 				api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
@@ -70,7 +66,6 @@ class IndexPage extends Component {
 					city: response.city.name,
 					country: response.city.country,
 					data: response.list,
-					error: false
 				})
 
 				// Getting today's weather data
@@ -81,15 +76,16 @@ class IndexPage extends Component {
 				this.setState({
 					todaysTemp: response.main.temp,
 					todaysIcon: response.weather[0].icon,
-					todaysDesc: response.weather[0].description
+					todaysDesc: response.weather[0].description,
+					error: false
 				})
 			}
 			else {
-				if(!city && country)
-					alert("Please input a city as well")
-				else {
-					alert("Please input a city")
-				}
+				//if(!city && country)
+					//alert("Please input a city as well")
+				//else {
+					//alert("Please input a city")
+				//}
 				this.setState({
 					error: true
 				})
@@ -100,8 +96,6 @@ class IndexPage extends Component {
 			})
 			console.clear()
 		}
-
-		//console.log(response);
 	}
 
 

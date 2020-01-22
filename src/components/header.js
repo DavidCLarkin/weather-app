@@ -6,13 +6,7 @@ import logo from '../images/weatherIcons/wi-windy.svg'
 
 const Header = () => (
   <header className={styles.header}>
-    <div className={styles.content}
-      //style={{
-       // margin: `0 auto`,
-        //maxWidth: 960,
-        //padding: `1.45rem 1.0875rem`,
-      //}}
-    >
+    <div className={styles.content}>
       <img src={logo} alt="logo" height='50'  width='50'></img>
     </div>
   </header>

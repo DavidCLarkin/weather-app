@@ -17,8 +17,6 @@
         margin: 0.5rem;
         display: grid;
         padding: 10px;
-        //grid-template-columns: 1fr;
-        //grid-template-rows: auto;
         grid-column-start: 1;
         grid-column-end: 4;
         grid-template-areas:
@@ -79,16 +77,13 @@
     font-size: 2rem;
     color: $light-color;
     text-shadow: 3px 3px $dark-font;
-    //white-space: nowrap;
 }
 .degrees {
     padding: 5px;
     font-size: 1.5rem;
-    //white-space: nowrap;
 }
 
 .container {
-    //border: 1px solid black;
     display: flex;
     min-height: 100%; 
     flex-direction: row;
@@ -109,7 +104,6 @@
     }
     .section {
         text-align: center;
-        //border: 1px solid red;
         padding: 20px;
         margin: 1%;
         width: 18%;
@@ -117,7 +111,6 @@
         background-color: $header-color;
         //box-shadow: 4px 4px $light-color;
         transition: transform .2s ease-in-out;
-        //white-space: nowrap;
     }
 
     .section:hover {
@@ -139,7 +132,6 @@
 
     .container {
         display: flex;
-        //flex-direction: column;
         .section {
             width: 31%;
             margin: 1%;
