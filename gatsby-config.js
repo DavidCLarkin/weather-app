@@ -4,19 +4,11 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-//const dotenv = require('dotenv')
-
-// Remove this in build to try to fix
-/*if(process.env.NODE_ENV !== 'production') 
-{
-  dotenv.config()
-}
-*/
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Get The Weather`,
+    description: `Small weather app that gives weather data for current day and next few days.`,
+    author: `@DavidLarkin`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -33,13 +25,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `gettheweather`,
+        short_name: `weather`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#eeeeee`,
+        theme_color: `#222831`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/weatherIcons/wi-windy-icon.svg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

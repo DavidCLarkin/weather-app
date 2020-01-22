@@ -5,6 +5,7 @@
     text-align: center;
     font-size: 2rem;
     margin-bottom: 0;
+    font-family: 'Poppins', 'sans serif';
 }
 
 .wrapper {
@@ -47,6 +48,7 @@
         .descArea {
             grid-area: desc;
             font-size: 2rem;
+            padding: 0;
         }
 
         img, p {
@@ -68,6 +70,7 @@
     
     .todaySection:hover {
         transform: scale(1.01);
+        background-color: $hovered-dark;
     }
 }
 
@@ -93,6 +96,10 @@
     flex-wrap: wrap;
     color: $font-white;
     align-items: center;
+
+    p{
+        white-space: nowrap;
+    }
     img {
         padding: 0;
         margin: 0;
@@ -114,7 +121,7 @@
     }
 
     .section:hover {
-        transform: scale(1.05);
+        transform: scale(1.02);
         background-color: $hovered-dark;
     }
 
@@ -122,6 +129,13 @@
 
 @media screen and (max-width:1024px)
 {
+    .wrapper {
+        .todaySection{
+            .descArea {
+                font-size: 1.25rem;
+            }
+        }
+    }
 
     .container {
         display: flex;
