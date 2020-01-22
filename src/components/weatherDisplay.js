@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './scss/weather.module.scss'
 import helpers from '../helpers/helpers.js'
 import _ from 'lodash';
+import Fade from 'react-reveal/Fade'
+import Slide from 'react-reveal/Slide'
 
 const WeatherDisplay = props => {
     const date = new Date();
@@ -49,36 +51,42 @@ const WeatherDisplay = props => {
     return (
         <div>
             {props.data &&
-                <h1 className={styles.headers}>{props.city}, {props.country} </h1>
+                <Fade>
+                    <h1 className={styles.headers}>{props.city}, {props.country} </h1>
+                </Fade>
             }
             {props.todaysIcon &&
                 <div className={styles.wrapper}>
-                    <div className={styles.todaySection}> 
-                        <div className={styles.iconArea}>   
-                            <img src={helpers.convertIdToSVG(props.todaysIcon)} 
-                                alt="Today's weather icon"
-                                height='100'
-                                wdith='100'/>
+                    <Fade>
+                        <div className={styles.todaySection}> 
+                            <div className={styles.iconArea}>   
+                                <img src={helpers.convertIdToSVG(props.todaysIcon)} 
+                                    alt="Today's weather icon"
+                                    height='100'
+                                    wdith='100'/>
+                            </div>
+                            <div className={styles.dayArea}>
+                                <p>{convertToDate(timestamp)}</p>
+                            </div>
+                            <div className={styles.descArea}>
+                                <p>{_.capitalize(props.todaysDesc)}</p>
+                            </div>
+                            <div className={styles.tempArea}>
+                                <p className={styles.fahrenheit}>{kelvinToFahrenheit(props.todaysTemp)}º F</p>
+                                <p className={styles.degrees}>{kelvinToCelsius(props.todaysTemp)}º C</p>
+                            </div>
                         </div>
-                        <div className={styles.dayArea}>
-                            <p>{convertToDate(timestamp)}</p>
-                        </div>
-                        <div className={styles.descArea}>
-                            <p>{_.capitalize(props.todaysDesc)}</p>
-                        </div>
-                        <div className={styles.tempArea}>
-                            <p className={styles.fahrenheit}>{kelvinToFahrenheit(props.todaysTemp)}º F</p>
-                            <p className={styles.degrees}>{kelvinToCelsius(props.todaysTemp)}º C</p>
-                        </div>
-                    </div>
+                    </Fade>
                 </div>
-            }   
+            }
+
             <div className={styles.container}>
                 {/* Filter so that only 3pm on each day is shown (estimate the weather)*/}
                 {props.data && props.data
                     .filter(e => filterByTime(e.dt) == 15)
                     .map(e => {
                         return (
+                            <Fade>
                             <div className={styles.section}>
                                 <p className={styles.date}>{convertToDate(e.dt)}</p>
                                 <img src={helpers.convertIdToSVG(e.weather[0].icon)}
@@ -89,6 +97,7 @@ const WeatherDisplay = props => {
                                 <p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
                                 <p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
                             </div>
+                            </Fade>
                         )
                     })}
             </div>

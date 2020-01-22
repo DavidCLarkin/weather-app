@@ -1,7 +1,4 @@
 import React from 'react'
-import styles from './scss/weather.module.scss'
-import helpers from '../helpers/helpers.js'
-import Reveal from 'react-reveal/Reveal'
 import WeatherDisplay from './weatherDisplay'
 import ErrorComponent from './errorComponent'
 
