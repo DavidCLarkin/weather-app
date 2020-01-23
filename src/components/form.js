@@ -48,10 +48,11 @@ const Form = props => {
 					<button>Get Weather</button>
 				</div>
 			</form>
-			<div className={styles.buttonContainer} style={{marginBottom:'2rem'}}>
-				<button onClick={props.getCoordWeather}>Use Current Location</button>
+			<div className={styles.buttonContainer}>
+				<button 
+					onClick={props.getCoordWeather}
+					style={{marginTop: '0', marginBottom: '1.5rem'}}>Use Current Location</button>
 			</div>
-
 		</div>
 	)
 }
