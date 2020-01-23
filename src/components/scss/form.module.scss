@@ -31,7 +31,7 @@
         background-color: $light-color;
         box-shadow: 2px 2px $header-color;
         border-radius: 0.5rem;
-        color: $font-white;
+        color: $hovered-dark;
         justify-content: center;
         outline-color: transparent;
 
@@ -41,6 +41,7 @@
     }
     button:hover {
         background-color: $dark-color;
+        color: $font-white;
         border: 0;
         transition: all 0.1s linear;
     }

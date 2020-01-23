@@ -58,13 +58,11 @@ const WeatherDisplay = props => {
             {props.todaysIcon &&
                 <Fade>
                     <div className={styles.wrapper}>
-
                         <div className={styles.todaySection}>
                             <div className={styles.iconArea}>
-                                <img src={helpers.convertIdToSVG(props.todaysIcon)}
-                                    alt="Today's weather icon"
-                                    height='100'
-                                    wdith='100' />
+                                <img className={styles.svg} 
+                                    src={helpers.convertIdToSVG(props.todaysIcon)}
+                                    alt="Today's weather icon"/>
                             </div>
                             <div className={styles.dayArea}>
                                 <p>{convertToDate(timestamp)}</p>
@@ -81,29 +79,26 @@ const WeatherDisplay = props => {
                 </Fade>
             }
 
-            <Fade>
-                <div className={styles.container}>
-                    {/* Filter so that only 3pm on each day is shown (estimate the weather)*/}
-                    {props.data && props.data
-                        .filter(e => filterByTime(e.dt) == 15)
-                        .map(e => {
-                            return (
-
-                                <div className={styles.section}>
+            <div className={styles.container}>
+                {/* Filter so that only 3pm on each day is shown (estimate the weather)*/}
+                {props.data && props.data
+                    .filter(e => filterByTime(e.dt) == 15)
+                    .map(e => {
+                        return (
+                            <div className={styles.section}>
+                                <Fade>
                                     <p className={styles.date}>{convertToDate(e.dt)}</p>
-                                    <img src={helpers.convertIdToSVG(e.weather[0].icon)}
-                                        alt={e.weather[0].main}
-                                        height='100'
-                                        width='100' />
+                                    <img
+                                        src={helpers.convertIdToSVG(e.weather[0].icon)}
+                                        alt={e.weather[0].main}/>
                                     <p>{_.capitalize(e.weather[0].description)}</p>
                                     <p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
                                     <p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
-                                </div>
-                            )
-                        })}
-                </div>
-            </Fade>
-
+                                </Fade>
+                            </div>
+                        )
+                    })}
+            </div>
         </div>
     )
 }

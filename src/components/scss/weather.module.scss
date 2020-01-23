@@ -20,7 +20,7 @@
         grid-column-start: 1;
         grid-column-end: 4;
         grid-template-areas:
-        "day day day"
+        "icon day temp"
         "icon desc temp"
         ;
         margin-top: 1rem;
@@ -32,6 +32,11 @@
 
         .iconArea {
             grid-area: icon;
+            .svg {
+                height: 125px;
+                width: 125px;
+                animation: enhance 5s ease infinite;
+            }
         }
 
         .dayArea {
@@ -45,7 +50,7 @@
 
         .descArea {
             grid-area: desc;
-            font-size: 2rem;
+            font-size: 1.5rem;
             padding: 0;
         }
 
@@ -64,12 +69,21 @@
         > :nth-child(0) {
             max-width: 10px;
         }
+
     }
     
     .todaySection:hover {
         transform: scale(1.01);
         background-color: $hovered-dark;
     }
+}
+
+@keyframes enhance {
+    0%  
+        {transform: scale(1);}
+    50%
+        {transform: scale(1.1);}
+    100% {transform: scale(1);}
 }
 
 .fahrenheit {
@@ -92,16 +106,21 @@
     color: $font-white;
     align-items: center;
 
-    p{
+    p {
         white-space: nowrap;
     }
+
     img {
         padding: 0;
         margin: 0;
+        height: 100px;
+        width: 100px;
     }
+
     .date {
         font-size: 1rem;
     }
+
     .section {
         text-align: center;
         padding: 20px;
@@ -117,7 +136,6 @@
         transform: scale(1.02);
         background-color: $hovered-dark;
     }
-
 }
 
 @media screen and (max-width:1024px)
@@ -125,7 +143,7 @@
     .wrapper {
         .todaySection{
             .descArea {
-                font-size: 1.25rem;
+                font-size: 1.1rem;
             }
         }
     }

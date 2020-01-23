@@ -11,11 +11,13 @@ const Form = props => {
 		inputsToShow = 
 		<div className={styles.container}>
 			<input className={styles.inputField}
+				type="input"
 				style={{borderBottomColor:"#CD2D2D"}}
 				name="city"
 				placeholder="City"
 				/>
 			<input className={styles.inputField}
+				type="input"
 				style={{borderBottomColor:"#CD2D2D"}}
 				name="country"
 				placeholder="Country"
@@ -26,10 +28,12 @@ const Form = props => {
 		inputsToShow = 
 		<div className={styles.container}>
 			<input className={styles.inputField}
+				type="input"
 				name="city"
 				placeholder="City"
 				/>
 			<input className={styles.inputField}
+				type="input"
 				name="country"
 				placeholder="Country"
 				/>
