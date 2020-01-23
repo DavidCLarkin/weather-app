@@ -60,9 +60,9 @@ const WeatherDisplay = props => {
                     <div className={styles.wrapper}>
                         <div className={styles.todaySection}>
                             <div className={styles.iconArea}>
-                                <img className={styles.svg} 
+                                <img className={styles.svg}
                                     src={helpers.convertIdToSVG(props.todaysIcon)}
-                                    alt="Today's weather icon"/>
+                                    alt="Today's weather icon" />
                             </div>
                             <div className={styles.dayArea}>
                                 <p>{convertToDate(timestamp)}</p>
@@ -85,17 +85,18 @@ const WeatherDisplay = props => {
                     .filter(e => filterByTime(e.dt) == 15)
                     .map(e => {
                         return (
-                            <div className={styles.section}>
-                                <Fade>
+                            <Fade>
+                                <div className={styles.section}>
                                     <p className={styles.date}>{convertToDate(e.dt)}</p>
                                     <img
                                         src={helpers.convertIdToSVG(e.weather[0].icon)}
-                                        alt={e.weather[0].main}/>
+                                        alt={e.weather[0].main} />
                                     <p>{_.capitalize(e.weather[0].description)}</p>
                                     <p className={styles.fahrenheit}>{kelvinToFahrenheit(e.main.temp)}º F</p>
                                     <p className={styles.degrees}>{kelvinToCelsius(e.main.temp)}º C</p>
-                                </Fade>
-                            </div>
+                                </div>
+                            </Fade>
+
                         )
                     })}
             </div>
