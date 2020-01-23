@@ -1,8 +1,10 @@
 import React, { Component } from "react"
+import ReactDOM from 'react-dom'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Weather from "../components/weather"
 import Form from "../components/form"
+import {geolocated} from 'react-geolocated'
 
 class IndexPage extends Component {
 
@@ -20,12 +22,13 @@ class IndexPage extends Component {
 			long: null
 		};
 
-		this.getLocation = this.getLocation.bind(this);
-		this.showPosition = this.showPosition.bind(this);
+		//this.getLocation = this.getLocation.bind(this);
+		//this.showPosition = this.showPosition.bind(this);
 
-		this.getLocation()
+		//this.getLocation()
 	}
-
+	
+	/*
 	getLocation() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.showPosition, this.handleLocationError)
@@ -36,20 +39,21 @@ class IndexPage extends Component {
 		}
 	}
 
-	showPosition(position) {
+	showPosition(latitude, longitude) {
 		this.setState({
-			lat: position.coords.latitude,
-			long: position.coords.longitude
+			lat: latitude,
+			long: longitude
 		}, () => { this.getWeatherCoords() }); // callback to make sure state is set
 
 	}
+	*/
 
 	getWeatherCoords = async () => {
 		try {
 			let api_call
 			let response
-			const lat = this.state.lat
-			const long = this.state.long
+			const lat = this.props.coords.latitude
+			const long = this.props.coords.longitude
 			//console.log('Lat:' + this.state.lat)
 
 			api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
@@ -186,7 +190,10 @@ class IndexPage extends Component {
 		return (
 			<Layout>
 				<SEO title="Home" />
-				<Form getWeather={this.getWeather} error={this.state.error} />
+				<Form 
+					getWeather={this.getWeather}
+					getCoordWeather={this.getWeatherCoords} 
+					error={this.state.error} />
 				<Weather
 					city={this.state.city}
 					country={this.state.country}
@@ -203,4 +210,9 @@ class IndexPage extends Component {
 	}
 }
 
-export default IndexPage
+export default geolocated({
+	positionOptions: {
+		enableHighAccuracy:false,
+	},
+	userDecisionTimeout: 5000,
+})(IndexPage);

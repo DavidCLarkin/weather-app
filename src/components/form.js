@@ -43,11 +43,15 @@ const Form = props => {
 	return (
 		<div className={styles.outer}>
 			<form onSubmit={props.getWeather}>
-					{inputsToShow}
+				{inputsToShow}
 				<div className={styles.buttonContainer}>
 					<button>Get Weather</button>
 				</div>
 			</form>
+			<div className={styles.buttonContainer} style={{marginBottom:'2rem'}}>
+				<button onClick={props.getCoordWeather}>Use Current Location</button>
+			</div>
+
 		</div>
 	)
 }
