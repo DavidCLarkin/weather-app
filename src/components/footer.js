@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Fade from "react-reveal"
 import styles from "./scss/footer.module.scss"
+//import geolocated from 'react-geolocated'
 
-const Footer = () => (
-    <footer className={styles.footerSection}>
-      <Fade bottom>
-        <p className={styles.footnote}>© 2020 David Larkin</p>
-      </Fade>
-    </footer> 
-)
+class Footer extends Component {
 
-export default Footer
+  render() {
+    return (
+      <footer className={styles.footerSection}>
+        <Fade bottom>
+          <p className={styles.footnote}>© 2020 David Larkin</p>
+        </Fade>
+      </footer> 
+    )
+  }
+}
+
+export default Footer;

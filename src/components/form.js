@@ -44,7 +44,6 @@ const Form = props => {
 		<div className={styles.outer}>
 			<form onSubmit={props.getWeather}>
 					{inputsToShow}
-
 				<div className={styles.buttonContainer}>
 					<button>Get Weather</button>
 				</div>

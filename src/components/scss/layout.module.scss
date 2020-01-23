@@ -1,6 +1,7 @@
 @import './base.module.scss';
 
 .main {
+  background-image: url('/src/images/weatherheader.svg');
   min-height: calc(100vh - 50px);
 }
 html {
