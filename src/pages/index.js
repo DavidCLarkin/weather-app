@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import ReactDOM from 'react-dom'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Weather from "../components/weather"
@@ -21,32 +20,8 @@ class IndexPage extends Component {
 			lat: null,
 			long: null
 		};
-
-		//this.getLocation = this.getLocation.bind(this);
-		//this.showPosition = this.showPosition.bind(this);
-
-		//this.getLocation()
-	}
-	
-	/*
-	getLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(this.showPosition, this.handleLocationError)
-			//this.getWeatherCoords()
-		}
-		else {
-			alert('not allowed')
-		}
 	}
 
-	showPosition(latitude, longitude) {
-		this.setState({
-			lat: latitude,
-			long: longitude
-		}, () => { this.getWeatherCoords() }); // callback to make sure state is set
-
-	}
-	*/
 
 	getWeatherCoords = async () => {
 		try {

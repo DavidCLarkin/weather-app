@@ -3,7 +3,6 @@ import styles from './scss/weather.module.scss'
 import helpers from '../helpers/helpers.js'
 import _ from 'lodash';
 import Fade from 'react-reveal/Fade'
-import Slide from 'react-reveal/Slide'
 
 const WeatherDisplay = props => {
     const date = new Date();
@@ -30,15 +29,17 @@ const WeatherDisplay = props => {
         return dateString;
     }
 
+    
     function convertToTime(inputDate) {
         var date = convertUNIX(inputDate)
         return convertMilitaryTime(date.getUTCHours())
     }
+    
 
     function convertMilitaryTime(time) {
-        if (time == 0) return '12 am'
+        if (time === 0) return '12 am'
         else if (time < 12) return time + ' am'
-        else if (time == 12) return '12 pm'
+        else if (time === 12) return '12 pm'
         else if (time > 12) return time - 12 + ' pm'
     }
 
@@ -82,7 +83,7 @@ const WeatherDisplay = props => {
             <div className={styles.container}>
                 {/* Filter so that only 3pm on each day is shown (estimate the weather)*/}
                 {props.data && props.data
-                    .filter(e => filterByTime(e.dt) == 15)
+                    .filter(e => filterByTime(e.dt) === 15)
                     .map(e => {
                         return (
                             <Fade>

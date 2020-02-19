@@ -44,6 +44,7 @@ const Form = props => {
 		<div className={styles.outer}>
 			<form onSubmit={props.getWeather}>
 				{inputsToShow}
+				<p className={styles.note}>Note: not inputting a country/country code can return ambiguous results</p>
 				<div className={styles.buttonContainer}>
 					<button>Get Weather</button>
 				</div>

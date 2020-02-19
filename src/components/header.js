@@ -1,5 +1,3 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 import styles from './scss/header.module.scss'
 import logo from '../images/weatherIcons/wi-windy.svg'
