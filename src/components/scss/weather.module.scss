@@ -172,3 +172,18 @@
         }
     }
 }
+
+@media screen and (max-width: 420px)
+{
+    .container {
+        p {
+            font-size: 0.75rem;
+        }
+        .fahrenheit {
+            font-size: 1.5rem;
+        }
+        .degrees {
+            font-size: 1.2rem;
+        }
+    }
+}
