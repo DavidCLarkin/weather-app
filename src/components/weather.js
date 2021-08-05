@@ -11,6 +11,7 @@ const Weather = props => {
 	if(error)
 	{
 		componentToDisplay = <ErrorComponent />
+		console.log(error);
 	}
 	else {
 		componentToDisplay = <WeatherDisplay 

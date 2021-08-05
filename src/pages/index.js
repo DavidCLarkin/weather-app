@@ -29,11 +29,11 @@ class IndexPage extends Component {
 			let response
 			const lat = this.props.coords.latitude
 			const long = this.props.coords.longitude
-			//console.log('Lat:' + this.state.lat)
 
-			api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
+			api_call = await fetch(`https://gamewebsiteproject.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=0602d71d76a0e65d218d52b23536692a`)
 
 			response = await api_call.json()
+			console.log(response);
 
 			this.setState({
 				todaysTemp: response.main.temp,
@@ -43,7 +43,7 @@ class IndexPage extends Component {
 			})
 
 			// Getting the weeks weather data
-			api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
+			api_call = await fetch(`https://gamewebsiteproject.herokuapp.com/api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=0602d71d76a0e65d218d52b23536692a`)
 
 			response = await api_call.json()
 
@@ -56,10 +56,11 @@ class IndexPage extends Component {
 
 			//console.log(response)
 		} catch (e) {
+			console.log(e);
 			this.setState({
 				error: true
 			})
-			console.clear()
+			//console.clear()
 		}
 	}
 
@@ -95,9 +96,10 @@ class IndexPage extends Component {
 				let api_call
 
 				// Getting the weeks weather data
-				api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
+				api_call = await fetch(`https://gamewebsiteproject.herokuapp.com/api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=0602d71d76a0e65d218d52b23536692a`)
 
 				response = await api_call.json()
+				console.log(response);
 
 				this.setState({
 					city: response.city.name,
@@ -107,7 +109,8 @@ class IndexPage extends Component {
 				})
 
 				// Getting today's weather data
-				api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
+				api_call = await fetch(`https://gamewebsiteproject.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=London&appid=0602d71d76a0e65d218d52b23536692a`)
+				//api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
 
 				response = await api_call.json()
 
@@ -120,7 +123,7 @@ class IndexPage extends Component {
 			else if (city && !country) {
 				let api_call
 
-				api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
+				api_call = await fetch(`https://gamewebsiteproject.herokuapp.com/api.openweathermap.org/data/2.5/forecast?q=${city}&appid=0602d71d76a0e65d218d52b23536692a`)
 
 				response = await api_call.json()
 
@@ -131,7 +134,7 @@ class IndexPage extends Component {
 				})
 
 				// Getting today's weather data
-				api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.GATSBY_APP_WEATHER_API_KEY}`)
+				api_call = await fetch(`https://gamewebsiteproject.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=${city}&appid=0602d71d76a0e65d218d52b23536692a`)
 
 				response = await api_call.json()
 
@@ -156,7 +159,7 @@ class IndexPage extends Component {
 			this.setState({
 				error: true
 			})
-			console.clear()
+			//console.clear()
 		}
 	}
 
